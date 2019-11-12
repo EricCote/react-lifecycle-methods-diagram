@@ -6,6 +6,7 @@ import { isReactVersion } from './propTypes';
 const diagramVersions = {
   16.3: import('./versions/16.3'),
   16.4: import('./versions/16.4'),
+  hooks: import('./versions/hooks'),
 };
 
 export default function Diagram({ advanced, reactVersion }) {
@@ -25,9 +26,7 @@ export default function Diagram({ advanced, reactVersion }) {
 
   return (
     <>
-      <h2 className="hidden">
-        Component lifecycle
-      </h2>
+      <h2 className="hidden">Component lifecycle</h2>
       <Mounting advanced={advanced} />
       <Updating advanced={advanced} />
       <Unmounting advanced={advanced} />
