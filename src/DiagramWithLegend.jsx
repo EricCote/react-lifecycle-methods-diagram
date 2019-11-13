@@ -12,7 +12,10 @@ export default function DiagramWithLegend({ advanced, reactVersion }) {
   return (
     <main className="DiagramWithLegend">
       <Legend advanced={advanced} reactVersion={reactVersion} />
-      <Diagram advanced={advanced} reactVersion={reactVersion} />
+      <Diagram
+        advanced={advanced}
+        reactVersion={reactVersion}
+      />
     </main>
   );
 }

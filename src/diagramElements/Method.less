@@ -37,12 +37,11 @@
     --border-color: rgb(146, 185, 124);
   }
 
-  a,
-  span {
+  a, span {
     display: block;
     width: 100%;
     height: 100%;
-    margin: (-@vertical-padding - 1px) (-@horizontal-padding - 1px);
+    margin: -(@vertical-padding + 1px) -(@horizontal-padding + 1px);
     padding: @vertical-padding @horizontal-padding;
 
     background-color: var(--background-color);
@@ -56,8 +55,7 @@
     text-decoration: none;
     position: relative;
 
-    &:hover,
-    &:focus {
+    &:hover, &:focus {
       background-color: rgb(255, 255, 255);
       z-index: 1;
 
@@ -68,7 +66,7 @@
       }
 
       @supports (not (-moz-outline-radius: 5px)) {
-        margin: (-@vertical-padding - 2px) (-@horizontal-padding - 2px);
+        margin: -(@vertical-padding + 2px) -(@horizontal-padding + 2px);
         border-width: 2px;
       }
     }

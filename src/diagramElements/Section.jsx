@@ -19,22 +19,27 @@ export default function Section(props) {
     colspan = 1,
     isHooks,
     name,
-    //
   } = props;
 
   function renderChildren() {
     // If we're creating a section containing subsections, we don't need to create one.
     if (!children.find(el => el.type === Method || el.type === Initiator)) {
       return React.Children.map(
-        children, //
+        children,
         child => React.cloneElement(
           child,
-          Object.assign({ sectionCol: col }, props, child.props),
+          Object.assign(
+            { sectionCol: col },
+            props,
+            child.props,
+          ),
         ),
       );
     }
 
-    return <Subsection {...props} />;
+    return (
+      <Subsection {...props} />
+    );
   }
 
   const gridColumn = `${col + 1} / span ${colspan}`;
@@ -43,6 +48,7 @@ export default function Section(props) {
   const highlightPos = 8
     + (isHooks ? -2 : 0) + (advanced ? 1 : 0) * (isHooks ? 2 : 8);
   const highlightSpan = totalSpan - (highlightPos - 1);
+
   return (
     <>
       <section
@@ -70,7 +76,9 @@ export default function Section(props) {
           gridRow: 1,
         }}
       >
-        <T>{name}</T>
+        <T>
+          {name}
+        </T>
       </h3>
       {renderChildren()}
     </>
