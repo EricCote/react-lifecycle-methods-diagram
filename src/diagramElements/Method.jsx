@@ -30,7 +30,7 @@ export default function Method({
       )}
       style={{
         gridColumn: `${col + 1} / span ${colspan}`,
-        gridRow: `${row * 3 + 0} / span 2`,
+        gridRow: `${row * 3} / span 2`,
       }}
     >
       <DocLink docname={docname} name={name} isHooks={isHooks} />
