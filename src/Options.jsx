@@ -5,15 +5,21 @@ import countryCodeToFlagEmoji from 'country-code-to-flag-emoji';
 import './Options.less';
 
 import T from './i18n';
-import { supportedReactVersions, isReactVersion } from './propTypes';
-import { supportedLocales } from './i18n/i18n';
+import {
+  supportedReactVersions as fullSupportedReactVersions,
+  isReactVersion,
+} from './propTypes';
+import { supportedLocales as fullSupportedLocales } from './i18n/i18n';
 
-function SelectOption({
-  onChange,
-  options,
-  value,
-  ...otherProps
-}) {
+const supportedLocales = fullSupportedLocales.filter(
+  lang => lang === 'fr-FR' || lang === 'en-US'
+);
+
+const supportedReactVersions = fullSupportedReactVersions.filter(
+  (v, idx) => idx !== 0
+);
+
+function SelectOption({ onChange, options, value, ...otherProps }) {
   return (
     <select id="language" onChange={onChange} value={value} {...otherProps}>
       {options.map(option => (
@@ -27,13 +33,15 @@ function SelectOption({
 
 SelectOption.propTypes = {
   onChange: PropTypes.func,
-  options: PropTypes.arrayOf(PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string,
-    }),
-  ])).isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string,
+      }),
+    ])
+  ).isRequired,
   value: PropTypes.string,
 };
 
@@ -48,28 +56,27 @@ export default function Options({
   return (
     <fieldset className="Options">
       <legend>
-        <T>
-          Options
-        </T>
+        <T>Options</T>
       </legend>
       <div>
-        <input type="checkbox" id="showAdvanced" checked={advanced} onChange={toggleAdvanced} />
+        <input
+          type="checkbox"
+          id="showAdvanced"
+          checked={advanced}
+          onChange={toggleAdvanced}
+        />
         <label htmlFor="showAdvanced">
-          <T>
-            Show less common lifecycles
-          </T>
+          <T>Show less common lifecycles</T>
         </label>
       </div>
       <div>
         <label htmlFor="reactVersion">
-          <T>
-            React version
-          </T>
+          <T>React version</T>
         </label>
         <SelectOption
           id="reactVersion"
           options={supportedReactVersions.map(value => ({
-            label: value === '16.4' ? '^16.4' : value,
+            label: value,
             value,
           }))}
           onChange={toggleReactVersion}
@@ -78,9 +85,7 @@ export default function Options({
       </div>
       <div>
         <label htmlFor="language">
-          <T>
-            Language
-          </T>
+          <T>Language</T>
         </label>
         <SelectOption
           id="language"

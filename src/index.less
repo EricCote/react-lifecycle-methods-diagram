@@ -1,5 +1,32 @@
+@import (css)
+  url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo-wrapper {
+  display: inline-block;
+}
+
+.logo-wrapper :first-child {
+  width: 80px;
+}
+
+.company {
+  font-size: 30px;
+  font-family: 'Days One';
+  display: inline-block;
+  position: relative;
+  line-height: 30px;
+  top: -15px;
+}
+
 body {
-  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   font-weight: 300;
   margin: 20px;
@@ -22,11 +49,48 @@ p {
   margin: 0;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   font-weight: 300;
 }
 
 h1 {
   .hidden;
+}
+
+h1 {
+  width: initial;
+  height: initial;
+  opacity: 1;
+  overflow: initial;
+  position: initial;
+  text-align: center;
+  padding-left: calc(90px + 5vw);
+}
+
+@media print {
+  h1 {
+    width: initial;
+    height: initial;
+    opacity: 1;
+    overflow: initial;
+    position: initial;
+    text-align: center;
+    margin-bottom: 10px;
+  
+  }
+
+  .logo {top: 10px}
+
+  .logo-wrapper {
+    display: block;
+    margin-left: 40px;
+  }
+  .company {
+    text-align: center;
+    top: 0;
+  }
 }

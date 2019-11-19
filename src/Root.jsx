@@ -9,13 +9,17 @@ import Footer from './Footer';
 import { supportedReactVersions } from './propTypes';
 import { getMatchingLocale } from './i18n/i18n';
 
+import logo from './static/logoReact.svg';
+
 /**
  * Workaround for Google Chrome bug that causes grid to jump when hovered
  * after each rerender. Seems like Chrome can't figure out proper sizes until
  * we give it width explicitly.
  */
 function fixChromeGridSizingBug(ref) {
-  if (!ref) { return; }
+  if (!ref) {
+    return;
+  }
   requestAnimationFrame(() => {
     /* eslint-disable no-param-reassign */
     ref.style.width = `${ref.clientWidth}px`;
@@ -26,15 +30,12 @@ function fixChromeGridSizingBug(ref) {
 }
 
 function getLocalStorage(key, defaultValue) {
-  return (
-    key in localStorage
-      ? localStorage[key]
-      : defaultValue
-  );
+  return key in localStorage ? localStorage[key] : defaultValue;
 }
 
 const userLocale = getLocalStorage('locale', getMatchingLocale());
-const latestReactVersion = supportedReactVersions[supportedReactVersions.length - 1];
+const latestReactVersion =
+  supportedReactVersions[supportedReactVersions.length - 1];
 
 function useLocalStorage(key, defaultValue) {
   const [value, setValue] = useState(getLocalStorage(key, defaultValue));
@@ -55,9 +56,11 @@ function useLocalStorageFlag(key, defaultValue) {
   const [value, setValue] = useLocalStorage(key, defaultValue);
   const valueBoolean = typeof value === 'boolean' ? value : value === 'true';
   function onChange(valueOrFunction) {
-    setValue(typeof valueOrFunction === 'function'
-      ? valueOrFunction(valueBoolean)
-      : valueOrFunction);
+    setValue(
+      typeof valueOrFunction === 'function'
+        ? valueOrFunction(valueBoolean)
+        : valueOrFunction
+    );
   }
   return [valueBoolean, onChange];
 }
@@ -65,7 +68,10 @@ function useLocalStorageFlag(key, defaultValue) {
 export default function Root() {
   const [advanced, setAdvanced] = useLocalStorageFlag('showAdvanced', false);
   const [locale, setLocale] = useLocalStorage('locale', userLocale);
-  const [reactVersion, setReactVersion] = useLocalStorage('reactVersion', latestReactVersion);
+  const [reactVersion, setReactVersion] = useLocalStorage(
+    'reactVersion',
+    latestReactVersion
+  );
 
   function toggleAdvanced() {
     setAdvanced(prevAdvanced => !prevAdvanced);
@@ -87,9 +93,22 @@ export default function Root() {
 
   return (
     <div ref={fixChromeGridSizingBug}>
+      <div class="logo">
+        <div class="logo-wrapper">
+          <img src={logo} alt="React Academy" title="React Academy" />
+        </div>
+
+        <div class="company">
+          <p>
+            React <br /> Academy
+          </p>
+        </div>
+      </div>
+
       <h1>
         <T>
-          React lifecycle methods diagram
+          React lifecycle methods (
+          {reactVersion.charAt(0).toUpperCase() + reactVersion.substr(1)})
         </T>
       </h1>
       <Options
