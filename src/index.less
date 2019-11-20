@@ -2,7 +2,7 @@
   url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
 
 .logo {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
 }
@@ -13,6 +13,14 @@
 
 .logo-wrapper :first-child {
   width: 80px;
+}
+
+.root{
+  break-inside: avoid;
+}
+
+.root:nth-child(n+2)  {
+  padding-top: 20px;
 }
 
 .company {
@@ -83,14 +91,19 @@ h1 {
   
   }
 
-  .logo {top: 10px}
+  .logo {top: 5px}
 
   .logo-wrapper {
     display: block;
-    margin-left: 40px;
+    padding-left: 45px ;
   }
   .company {
     text-align: center;
+    width: 170px;
     top: 0;
+    font-size: 20px;
+    line-height: 20px;
   }
+
+ 
 }

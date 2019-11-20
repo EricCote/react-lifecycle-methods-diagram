@@ -70,7 +70,7 @@ function useLocalStorageFlag(key, defaultValue) {
   return [valueBoolean, onChange];
 }
 
-export default function Root() {
+export default function Root(props) {
   const [advanced, setAdvanced] = useLocalStorageFlag('showAdvanced', false);
   const [locale, setLocale] = useLocalStorage('locale', userLocale);
   const [reactVersion, setReactVersion] = useLocalStorage(
@@ -96,8 +96,11 @@ export default function Root() {
     setLocaleToDocument(locale);
   }, [locale]);
 
+  const rv = props.reactVersion || reactVersion;
+  const adv = props.advanced || advanced;
+
   return (
-    <div ref={fixChromeGridSizingBug}>
+    <div class="root" ref={fixChromeGridSizingBug}>
       <div class="logo">
         <div class="logo-wrapper">
           <img src={logo} alt="React Academy" title="React Academy" />
@@ -105,26 +108,27 @@ export default function Root() {
 
         <div class="company">
           <p>
-            React <br /> Academy
+            React
+            <br />
+            Academy
           </p>
         </div>
       </div>
 
       <h1>
         <T>
-          React lifecycle methods (
-          {reactVersion.charAt(0).toUpperCase() + reactVersion.substr(1)})
+          React lifecycle methods ({rv.charAt(0).toUpperCase() + rv.substr(1)})
         </T>
       </h1>
       <Options
-        advanced={advanced}
+        advanced={adv}
         locale={locale}
-        reactVersion={reactVersion}
+        reactVersion={rv}
         toggleAdvanced={toggleAdvanced}
         toggleLocale={toggleLocale}
         toggleReactVersion={toggleReactVersion}
       />
-      <DiagramWithLegend advanced={advanced} reactVersion={reactVersion} />
+      <DiagramWithLegend advanced={adv} reactVersion={rv} />
       <Footer />
     </div>
   );

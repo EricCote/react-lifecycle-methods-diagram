@@ -7,8 +7,17 @@ import Root from './Root';
 import LangObserver from './i18n/LangObserver';
 
 render(
-  <LangObserver>
-    <Root />
-  </LangObserver>,
-  document.getElementById('react-container'),
+  window.location.hash === '#pdf' ? (
+    <LangObserver>
+      <Root advanced={true} reactVersion="classes" />
+
+      <Root advanced={true} reactVersion="hooks" />
+    </LangObserver>
+  ) : (
+    <LangObserver>
+      <Root />
+    </LangObserver>
+  ),
+
+  document.getElementById('react-container')
 );
