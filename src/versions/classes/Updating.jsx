@@ -8,14 +8,10 @@ import Method from '../../diagramElements/Method';
 import Arrow from '../../diagramElements/Arrow';
 
 export default function Updating({ advanced }) {
-  return (advanced ? (
+  return advanced ? (
     <Section advanced name="Updating" col={2} colspan={3}>
       <Subsection col={2}>
-        <Initiator
-          secondary
-          name="New props"
-          row={1}
-        />
+        <Initiator secondary name="Parent render()" row={1} />
         <Arrow />
         <Method
           name="getDerivedStateFromProps"
@@ -202,11 +198,7 @@ export default function Updating({ advanced }) {
   ) : (
     <Section name="Updating" col={2} colspan={3}>
       <Subsection col={2}>
-        <Initiator
-          secondary
-          name="New props"
-          row={1}
-        />
+        <Initiator secondary name="New props" row={1} />
         <Arrow />
         <Method
           main
@@ -315,7 +307,7 @@ export default function Updating({ advanced }) {
         />
       </Subsection>
     </Section>
-  ));
+  );
 }
 
 Updating.propTypes = {
