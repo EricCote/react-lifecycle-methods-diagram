@@ -2,6 +2,9 @@
   "name": "react-lifecycle-methods-diagram",
   "version": "1.0.0",
   "description": "Interactive React lifecycle methods diagram.",
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
     "build": "parcel build src/index.html --public-url ./ --no-source-maps --experimental-scope-hoisting",
     "clean": "rimraf dist",
