@@ -21,5 +21,6 @@
   "React updates DOM, browser paints screen": "React génère le DOM, l'affichage est rafraîchi",
   "­Browser paints screen": "L'affichage est rafraîchi",
   "React updates DOM": "React génère le DOM",
-  "Run lazy initializers": "Exécuter les fonctions init"
+  "Run lazy initializers": "Exécuter les fonctions init",
+  "Canada's best training on Reactjs": "la meilleure formation ReactJs au Canada"
 }
