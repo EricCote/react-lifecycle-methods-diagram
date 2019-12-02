@@ -1,7 +1,7 @@
 {
-  "React lifecycle methods diagram": "Diagramme de cycle de vie des méthodes React",
+  "React lifecycle methods ({version})": "Cycles de vie React ({version})",
   "Options": "Options",
-  "Show less common lifecycles": "Montrer les cycles de vie moins courants",
+  "Show advanced lifecycles": "Montrer les cycles de vie avancés",
   "React version": "Version de React",
   "Language": "Langue",
   "Mounting": "Montage",

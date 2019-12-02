@@ -11,7 +11,7 @@ export default function Updating({ advanced }) {
   return advanced ? (
     <Section advanced name="Updating" col={2} colspan={3}>
       <Subsection col={2}>
-        <Initiator secondary name="Parent render()" row={1} />
+        <Initiator name="Parent render()" row={1} />
         <Arrow />
         <Method
           name="getDerivedStateFromProps"
@@ -198,7 +198,7 @@ export default function Updating({ advanced }) {
   ) : (
     <Section name="Updating" col={2} colspan={3}>
       <Subsection col={2}>
-        <Initiator secondary name="New props" row={1} />
+        <Initiator name="Parent render()" row={1} />
         <Arrow />
         <Method
           main

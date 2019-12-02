@@ -116,8 +116,8 @@ export default function Root(props) {
       </div>
 
       <h1>
-        <T>
-          React lifecycle methods ({rv.charAt(0).toUpperCase() + rv.substr(1)})
+        <T version={rv.charAt(0).toUpperCase() + rv.substr(1)}>
+          {'React lifecycle methods ({version})'}
         </T>
       </h1>
       <Options

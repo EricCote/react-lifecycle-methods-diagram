@@ -66,7 +66,7 @@ export default function Options({
           onChange={toggleAdvanced}
         />
         <label htmlFor="showAdvanced">
-          <T>Show less common lifecycles</T>
+          <T>Show advanced lifecycles</T>
         </label>
       </div>
       <div>

@@ -2,7 +2,7 @@
   url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
 
 .logo {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
 }
@@ -79,19 +79,15 @@ h1 {
   padding-left: calc(90px + 5vw);
 }
 
-@media print {
-  h1 {
-    width: initial;
-    height: initial;
-    opacity: 1;
-    overflow: initial;
-    position: initial;
-    text-align: center;
-    margin-bottom: 10px;
-  
-  }
+// on smaller screens, we move the top of
+// the page down to keep the logo visible.
+@media   (max-width:500px){
+  .root{ margin-top: 100px;}
+}
 
-  .logo {top: 5px}
+//on bigger screens, we place the logo like on the print media
+@media   (min-width:501px){
+  .logo {top: 5px; position: fixed}
 
   .logo-wrapper {
     display: block;
@@ -104,6 +100,13 @@ h1 {
     font-size: 20px;
     line-height: 20px;
   }
+}
+ 
+@media print {
+  h1 {
+    margin-bottom: 10px;
+  }
+
 
  
 }
