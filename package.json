@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Interactive React lifecycle methods diagram.",
   "engines": {
-    "node": "^12.13.1"
+    "node": "^12.13.0"
   },
   "scripts": {
     "build2": "parcel build src/index.html --public-url ./ --no-source-maps --experimental-scope-hoisting",
