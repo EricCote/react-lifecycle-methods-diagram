@@ -7,6 +7,7 @@ const diagramVersions = {
   16.3: import('./versions/16.3'),
   classes: import('./versions/classes'),
   hooks: import('./versions/hooks'),
+  legacy: import('./versions/legacy'),
 };
 
 export default function Diagram({ advanced, reactVersion }) {
