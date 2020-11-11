@@ -79,7 +79,7 @@ export default function Root(props) {
   );
 
   function toggleAdvanced() {
-    setAdvanced(prevAdvanced => !prevAdvanced);
+    setAdvanced((prevAdvanced) => !prevAdvanced);
   }
 
   function toggleLocale(event) {
@@ -100,13 +100,13 @@ export default function Root(props) {
   const adv = props.advanced || advanced;
 
   return (
-    <div class="root" ref={fixChromeGridSizingBug}>
-      <div class="logo">
-        <div class="logo-wrapper">
-          <img src={logo} alt="React Academy" title="React Academy" />
+    <div className='root' ref={fixChromeGridSizingBug}>
+      <div className='logo'>
+        <div className='logo-wrapper'>
+          <img src={logo} alt='React Academy' title='React Academy' />
         </div>
 
-        <div class="company">
+        <div className='company'>
           <p>
             React
             <br />

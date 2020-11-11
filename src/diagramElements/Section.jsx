@@ -18,35 +18,31 @@ export default function Section(props) {
     col,
     colspan = 1,
     isHooks,
+    isLegacy,
     name,
   } = props;
 
   function renderChildren() {
     // If we're creating a section containing subsections, we don't need to create one.
-    if (!children.find(el => el.type === Method || el.type === Initiator)) {
-      return React.Children.map(
-        children,
-        child => React.cloneElement(
+    if (!children.find((el) => el.type === Method || el.type === Initiator)) {
+      return React.Children.map(children, (child) =>
+        React.cloneElement(
           child,
-          Object.assign(
-            { sectionCol: col },
-            props,
-            child.props,
-          ),
-        ),
+          Object.assign({ sectionCol: col }, props, child.props)
+        )
       );
     }
 
-    return (
-      <Subsection {...props} />
-    );
+    return <Subsection {...props} />;
   }
 
   const gridColumn = `${col + 1} / span ${colspan}`;
 
   const totalSpan = 14 + (advanced ? 1 : 0) * (isHooks ? 12 : 9);
-  const highlightPos = 8
-    + (isHooks ? -2 : 0) + (advanced ? 1 : 0) * (isHooks ? 2 : 8);
+  const highlightPos =
+    8 +
+    (isHooks ? -2 : 0) +
+    (advanced ? 1 : 0) * (isHooks ? 2 : isLegacy ? 9 : 8);
   const highlightSpan = totalSpan - (highlightPos - 1);
 
   return (
@@ -62,7 +58,7 @@ export default function Section(props) {
         className={mergeClassNames(
           'Section__highlight',
           advanced && 'Section__highlight--advanced',
-          isHooks && 'Section__highlight--hooks',
+          isHooks && 'Section__highlight--hooks'
         )}
         style={{
           gridColumn,
@@ -70,15 +66,13 @@ export default function Section(props) {
         }}
       />
       <h3
-        className="Section__title"
+        className='Section__title'
         style={{
           gridColumn,
           gridRow: 1,
         }}
       >
-        <T>
-          {name}
-        </T>
+        <T>{name}</T>
       </h3>
       {renderChildren()}
     </>

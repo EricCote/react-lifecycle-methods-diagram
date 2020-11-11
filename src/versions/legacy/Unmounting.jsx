@@ -7,14 +7,14 @@ import Arrow from '../../diagramElements/Arrow';
 
 export default function Unmounting({ advanced }) {
   return (
-    <Section advanced={advanced} name="Unmounting" col={5}>
+    <Section advanced={advanced} isLegacy name='Unmounting' col={5}>
       <Arrow />
       <Method
         main
-        name="componentWillUnmount"
-        key="componentwillunmount"
-        docname="componentwillunmount"
-        type="commit"
+        name='componentWillUnmount'
+        key='componentwillunmount'
+        docname='componentwillunmount'
+        type='commit'
         row={advanced ? 7 : 4}
       />
     </Section>

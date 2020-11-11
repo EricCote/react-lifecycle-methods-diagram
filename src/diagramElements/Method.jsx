@@ -26,7 +26,7 @@ export default function Method({
         endsInMiddle && 'Method--endsInMiddle',
         main && 'Method--main',
         secondary && 'Method--secondary',
-        type,
+        type
       )}
       style={{
         gridColumn: `${col + 1} / span ${colspan}`,
@@ -48,5 +48,5 @@ Method.propTypes = {
   name: PropTypes.string.isRequired,
   row: PropTypes.number.isRequired,
   secondary: PropTypes.bool,
-  type: PropTypes.oneOf(['render', 'pre-commit', 'commit', 'layout']),
+  type: PropTypes.oneOf(['render', 'pre-commit', 'commit', 'layout', 'unsafe']),
 };
